@@ -1,8 +1,8 @@
 (function(){
 
-const commentBox = document.querySelector('.commentBox');
-const commentInput = document.querySelector('#commentInput');
-const btn = document.querySelector('#commentBtn');
+const commentBox = document.getElementById('commentBox');
+const commentInput = document.getElementById('commentInput').value;
+const btn = document.getElementById('commentBtn');
 const email = "email1@gmail.com";
 btn.addEventListener('click', function(event){
     event.preventDefault();
@@ -10,7 +10,7 @@ btn.addEventListener('click', function(event){
         commentBox.innerHTML += '<div class="commentArea">' +
                                 "<img class='altImage' src='user.png' />" +
                                 "<h2>"+ email +"</h2>" + 
-                                "<p>" + commentInput.value + "</p>" +
+                                "<p>" + commentInput + "</p>" +
                                 '<button class="deleteBtn" onclick="Delete(this);">Delete</button> </div>';   
     };
     document.getElementById('commentInput').value = "";    
