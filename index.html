@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet type=text/css" href="style.css"/>
-    <link rel="stylesheet" type="text/css" href="normalize.css">
-    <title>Comment Box</title>
+    <title>JS DOM Manipulation - Comment Box</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
 </head>
-
 <body>
-
-    <form>
-    <div id="input"> 
-        <textarea id="commentInput" type="text" placeholder="User input..."></textarea>
-        <button id="commentBtn">Add</button>
+    <div class="commentBox">
+        <div class="commentForm">
+            <input type="text" id="commentInput" placeholder="Comment here...">
+            <button id="commentButton">Add</button>
+        </div>
     </div>
-
-    <div id="commentBox"></div>
-    </form>
     <script src="script.js"></script>
 </body>
 </html>

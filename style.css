@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 #commentInput{
     resize: none;
     width: 400px;
@@ -11,8 +10,7 @@
     box-shadow: 5px 5px;
   
 }
-
-#commentBtn{
+#commentButton{
     margin: 20px;
     width: 300px;
     height: 50px;
@@ -23,16 +21,17 @@
     cursor: pointer;
     
 }
-
-
-#input {
+img{
+    width: 60px;
+    height: 60px;
+}
+.commentForm {
     margin: 50px;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-
-.commentArea {
+#commentList{
     display: flex;
     flex-direction: column;
     margin-left: 30px;
@@ -40,10 +39,8 @@
     margin-bottom: 10px;
     padding: 10px ;
     border:2px solid black;
-
 }
-
-.deleteBtn{
+.delete_button{
     margin: 20px;
     width: 100px;
     height: 20px;
@@ -53,16 +50,3 @@
     box-shadow: 5px 5px;
     cursor: pointer;
 }
-
-.altImage {
-    width: 90px;
-    float: right;
-}
-
-.commentArea>p {
-    text-indent: 30px;
-    text-align: justify;
-    display: block;
-    font-size: 20px;
-}
-

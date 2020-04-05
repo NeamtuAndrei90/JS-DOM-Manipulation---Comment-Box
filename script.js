@@ -1,23 +1,85 @@
-(function(){
+const comments = [{
+    id: Date.now(),
+    email: 'email1@gmail.com',
+    msg: 'ce faci2?'
+}, ];
 
-const commentBox = document.getElementById('commentBox');
-const commentInput = document.getElementById('commentInput').value;
-const btn = document.getElementById('commentBtn');
-const email = "email1@gmail.com";
-btn.addEventListener('click', function(event){
-    event.preventDefault();
-    if(commentInput.value !== ""){
-        commentBox.innerHTML += '<div class="commentArea">' +
-                                "<img class='altImage' src='user.png' />" +
-                                "<h2>"+ email +"</h2>" + 
-                                "<p>" + commentInput + "</p>" +
-                                '<button class="deleteBtn" onclick="Delete(this);">Delete</button> </div>';   
-    };
-    document.getElementById('commentInput').value = "";    
-});
+const btn = document.querySelector('#commentButton');
+const commentInput = document.querySelector('#commentInput');
+const coomentList = document.querySelector('#commentList');
+btn.addEventListener('click', function(){
+    const userId = Date.now();
+    comments.push({
+        id: userId,
+        email: 'email1@gmail.com',
+        msg: commentInput.value,
+    });
+    var node = createCommentNode({
+        id: userId,
+        email: 'email1@gmail.com',
+        msg: commentInput.value,
+    });
+    document.body.appendChild(node)
+})
+displayComments(comments, document.body);
 
-})();
 
-function Delete(currentComment){
-    currentComment.parentNode.parentNode.removeChild(currentComment.parentNode);
+
+function createCommentNode (comment){
+    const containerBox = document.createElement('div');
+    containerBox.id = "commentList";
+
+    const userData = document.createElement('div');
+    userData.id = "user";
+    
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "delete_button";
+    deleteBtn.innerText = "Delete";
+    
+    deleteBtn.setAttribute("id", comment.id)
+    console.log(comment.id)
+    
+
+    deleteBtn.addEventListener('click', function(event){
+        event.preventDefault();
+
+        console.log(event.target.getAttribute("id"))
+        containerBox.remove()
+
+    })
+
+    const img = document.createElement("img");
+    img.src = "user.png";
+    const title = addTitle(comment.email);
+    const p = addParagraph(comment.msg);
+
+    containerBox.appendChild(userData)
+    userData.appendChild(img);
+    userData.appendChild(title);
+    containerBox.appendChild(p);
+    containerBox.appendChild(deleteBtn);
+
+
+    return containerBox;
+
+}
+function addParagraph(text) {
+    const newP = document.createElement("p");
+    newP.innerText = text;
+    return newP;
+}
+
+function addTitle(title) {
+    const h1 = document.createElement("h1");
+    h1.innerText = title;
+    return h1;
+}
+
+function displayComments(comments, containerNode){
+    for (let idx = 0; idx < comments.length; idx++) {
+        const comment = comments[idx];
+        const commentNode = createCommentNode(comment);
+        containerNode.appendChild(commentNode);
+    }
+    
 };
